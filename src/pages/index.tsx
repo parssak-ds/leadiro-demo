@@ -1,6 +1,6 @@
 import { Accordian, Button } from "demandscience-ui";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Button>Hello world</Button>
