@@ -24,3 +24,7 @@ html,
 body {
   @apply h-full;
 }
+
+.h1 {
+  @apply text-2xl font-semibold md:text-3xl;
+}

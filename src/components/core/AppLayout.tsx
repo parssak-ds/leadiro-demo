@@ -18,7 +18,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div>
+    <div className="min-h-screen bg-gray-100">
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog as="div" className="fixed inset-0 z-40 flex md:hidden" onClose={setSidebarOpen}>
           <Transition.Child
@@ -62,13 +62,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                   </button>
                 </div>
               </Transition.Child>
-              <div className="flex items-center flex-shrink-0 px-4">
-                <img
-                  className="w-auto h-8"
-                  src="https://tailwindui.com/img/logos/workflow-logo-primary-300-mark-white-text.svg"
-                  alt="Workflow"
-                />
-              </div>
               <Navigation.Mobile />
             </div>
           </Transition.Child>
@@ -128,7 +121,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         </div>
 
         <main className="py-6 mt-16">
-          <div className="px-4 mx-auto max-w-7xl sm:px-6 md:px-8">{children}</div>
+          <div className="px-4 mx-auto md:max-w-8xl sm:px-6 md:px-8 md:pt-6">{children}</div>
         </main>
       </div>
     </div>
