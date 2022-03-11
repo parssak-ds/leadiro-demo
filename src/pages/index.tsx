@@ -103,9 +103,17 @@ export default function HomePage() {
               Mark as read
             </Button>
           </div>
-          <Alert>
+          <Alert handleClose={() => {}}>
             <Alert.Title>100 New Credits</Alert.Title>
             <p>You have received your monthly quota of 100 credits. </p>
+          </Alert>
+          <Alert handleClose={() => {}}>
+            <Alert.Title>Shared List</Alert.Title>
+            <p>Jason Smith shared a list with you. </p>
+          </Alert>
+          <Alert handleClose={() => {}}>
+            <Alert.Title>50 New Credits</Alert.Title>
+            <p>You have received your monthly quota of 50 credits. </p>
           </Alert>
         </div>
       </div>
