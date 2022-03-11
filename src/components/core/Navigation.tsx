@@ -21,27 +21,20 @@ const navigation = [
 ];
 
 const StaticNavigation = () => (
-  <div className="flex flex-col flex-grow pt-5 overflow-y-auto bg-indigo-700">
-    <div className="flex items-center flex-shrink-0 px-4">
-      <img
-        className="w-auto h-8"
-        src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
-        alt="Workflow"
-      />
-    </div>
-    <div className="flex flex-col flex-1 mt-5">
+  <div className="flex flex-col flex-grow pt-5 overflow-y-auto bg-primary-700">
+    <div className="flex flex-col flex-1">
       <nav className="flex-1 px-2 pb-4 space-y-1">
         {navigation.map((item) => (
           <a
             key={item.name}
             href={item.href}
             className={classNames(
-              item.current ? "bg-indigo-800 text-white" : "text-indigo-100 hover:bg-indigo-600",
-              "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+              item.current ? "bg-primary-800 text-white" : "text-primary-100 hover:bg-primary-600",
+              "flex items-center px-2 py-2 text-sm font-medium rounded-md"
             )}
           >
-            <item.icon className="flex-shrink-0 w-6 h-6 mr-3 text-indigo-300" aria-hidden="true" />
-            {item.name}
+            <item.icon className="flex-shrink-0 w-6 h-6 text-primary-300" aria-hidden="true" />
+            <span className="hidden ml-3 group-hover:inline-flex">{item.name}</span>
           </a>
         ))}
       </nav>
@@ -57,11 +50,11 @@ const MobileNavigation = () => (
           key={item.name}
           href={item.href}
           className={classNames(
-            item.current ? "bg-indigo-800 text-white" : "text-indigo-100 hover:bg-indigo-600",
+            item.current ? "bg-primary-800 text-white" : "text-primary-100 hover:bg-primary-600",
             "group flex items-center px-2 py-2 text-base font-medium rounded-md"
           )}
         >
-          <item.icon className="flex-shrink-0 w-6 h-6 mr-4 text-indigo-300" aria-hidden="true" />
+          <item.icon className="flex-shrink-0 w-6 h-6 mr-4 text-primary-300" aria-hidden="true" />
           {item.name}
         </a>
       ))}
@@ -69,4 +62,4 @@ const MobileNavigation = () => (
   </div>
 );
 
-export const Navigation = Object.assign(StaticNavigation, {Mobile: MobileNavigation});
+export const Navigation = Object.assign(StaticNavigation, { Mobile: MobileNavigation });
