@@ -1,4 +1,26 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
+@layer utilities {
+  .ring {
+    @apply outline-none ring-2 ring-offset-2;
+  }
+  .theme-primary {
+    @apply bg-primary-400 hover:bg-primary-500 focus:ring ring-primary-400;
+  }
+  .theme-secondary {
+    @apply bg-secondary-400 hover:bg-secondary-500 focus:ring ring-secondary-400;
+  }
+  .theme-success {
+    @apply bg-success-400 hover:bg-success-500 focus:ring ring-success-400;
+  }
+  .theme-error {
+    @apply bg-error-400 hover:bg-error-500 focus:ring ring-error-400;
+  }
+}
+
+html,
+body {
+  @apply h-full;
+}
