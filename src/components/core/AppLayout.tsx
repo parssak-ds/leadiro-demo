@@ -18,7 +18,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-50">
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog as="div" className="fixed inset-0 z-40 flex md:hidden" onClose={setSidebarOpen}>
           <Transition.Child
@@ -76,8 +76,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <Navigation />
       </div>
 
-      <div className="flex flex-col flex-1 md:pl-64">
-        <div className="absolute top-0 left-0 right-0 z-10 flex flex-shrink-0 h-16 shadow bg-whitse">
+      <div className="flex flex-col flex-1 mx-auto md:pl-12 xl:max-w-7xl">
+        <div className="absolute top-0 left-0 right-0 z-10 flex flex-shrink-0 h-16 shadow">
           <button
             type="button"
             className="px-4 text-gray-500 border-r border-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 md:hidden"
