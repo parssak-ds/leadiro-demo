@@ -67,7 +67,7 @@ export default function HomePage() {
           <DashboardSection title="Recent Searches" action={() => {}}>
             <div className="pb-4 space-x-2 overflow-auto whitespace-nowrap">
               {searches.map((search) => (
-                <Badge key={search} size="lg" className="px-2" type="gray">
+                <Badge key={search} size="lg" className="px-2" type="gray" onClick={() => {}}>
                   <SearchIcon className="w-4 h-4 mr-1.5" />
                   <span className="text-gray-500">{search}</span>
                 </Badge>

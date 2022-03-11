@@ -18,7 +18,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen lg:h-screen lg:overflow-hidden">
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog as="div" className="fixed inset-0 z-40 flex md:hidden" onClose={setSidebarOpen}>
           <Transition.Child
@@ -72,12 +72,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       </Transition.Root>
 
       {/* Static sidebar for desktop */}
-      <div className="hidden mt-16 transition-all duration-300 md:flex group md:w-14 hover:md:w-64 md:flex-col md:fixed md:inset-y-0">
+      <div className="hidden mt-16 transition-all duration-300 md:flex group md:w-14 hover:md:w-48 md:flex-col md:fixed md:inset-y-0">
         <Navigation />
       </div>
 
-      <div className="flex flex-col flex-1 mx-auto md:pl-12 xl:max-w-7xl">
-        <div className="absolute top-0 left-0 right-0 z-10 flex flex-shrink-0 h-16 shadow">
+      <div className="flex flex-col flex-1 h-full mx-auto md:pl-12 xl:max-w-7xl">
+        {/* Top bar */}
+        <div className="fixed top-0 left-0 right-0 z-10 flex flex-shrink-0 h-16 bg-white shadow">
           <button
             type="button"
             className="px-4 text-gray-500 border-r border-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 md:hidden"
@@ -90,10 +91,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center flex-1">
               <h3 className="font-medium">DemandScience</h3>
             </div>
-            <div className="flex items-center ml-4 md:ml-6">
+            <div className="flex items-center ml-4 space-x-2 md:ml-4">
               <button
                 type="button"
-                className="p-1 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                className="p-2 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
               >
                 <span className="sr-only">View notifications</span>
                 <BellIcon className="w-6 h-6" aria-hidden="true" />
@@ -120,8 +121,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
 
-        <main className="py-6 mt-16">
-          <div className="px-4 mx-auto md:max-w-8xl sm:px-6 md:px-8 md:pt-6">{children}</div>
+        {/* Main content */}
+        <main className="h-screen pt-20 pb-6">
+          <div className="h-full px-4 mx-auto md:max-w-8xl sm:px-6 md:px-8 md:pt-6">{children}</div>
         </main>
       </div>
     </div>
