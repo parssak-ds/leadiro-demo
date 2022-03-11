@@ -9,7 +9,7 @@ export default function SearchPage({}: Props) {
     <>
       <h1 className="mb-8 h1">Find Leads</h1>
       <div className="flex flex-col h-full space-y-8 lg:flex-row md lg:space-y-0 lg:space-x-8">
-        <div className="max-w-full lg:w-64">
+        <div className="max-w-full lg:w-80">
           {/* Filter Bar */}
           <h2 className="pb-4 mb-4 border-b h2">Filters</h2>
           <div className="space-y-4">
