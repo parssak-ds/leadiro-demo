@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { BellIcon, MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
-import { Navigation } from "./Navigation";
+import Navigation from "./Navigation";
 import { Avatar, Dropdown } from "demandscience-ui";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -31,7 +31,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative flex flex-col flex-1 w-full max-w-xs pt-5 pb-4 bg-primary-700">
+            <div className="relative flex flex-col flex-1 w-full max-w-xs pt-5 pb-4 bg-white">
               <Transition.Child
                 as={Fragment}
                 enter="ease-in-out duration-300"
@@ -52,7 +52,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                   </button>
                 </div>
               </Transition.Child>
-              <Navigation.Mobile />
+              <Navigation />
             </div>
           </Transition.Child>
           <div className="flex-shrink-0 w-14" aria-hidden="true">
@@ -62,13 +62,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       </Transition.Root>
 
       {/* Static sidebar for desktop */}
-      <div className="z-10 hidden mt-16 transition-all duration-300 md:flex group md:w-14 hover:md:w-48 md:flex-col md:fixed md:inset-y-0">
+      <div className="z-10 hidden transition-all duration-300 md:flex group md:w-14 hover:md:w-48 md:flex-col md:fixed md:inset-y-0">
         <Navigation />
       </div>
 
       <div className="mx-auto md:pl-14 max-w-screen-2xl">
         {/* Top bar */}
-        <div className="fixed top-0 left-0 right-0 z-10 flex flex-shrink-0 h-16 bg-white shadow">
+        <div className="fixed top-0 left-0 right-0 z-10 flex flex-shrink-0 h-16 bg-white shadow-xl shadow-gray-400/10">
           <button
             type="button"
             className="px-4 text-gray-500 border-r border-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 md:hidden"
@@ -84,7 +84,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center ml-4 space-x-2 md:ml-4">
               <button
                 type="button"
-                className="p-2 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                className="p-2 text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring focus:ring-primary-500"
               >
                 <span className="sr-only">View notifications</span>
                 <BellIcon className="w-6 h-6" aria-hidden="true" />

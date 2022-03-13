@@ -1,4 +1,4 @@
-import { Badge, Button } from "demandscience-ui";
+import { Alert, Badge, Button } from "demandscience-ui";
 import React from "react";
 
 const DashboardLayoutRoot = ({ children }) => (
@@ -29,6 +29,32 @@ const DashboardLayoutNotifications = ({ notifications }: { notifications: INotif
         Mark as read
       </Button>
     </div>
+    {notifications.map((notification) => (
+      <Alert key={notification.title} handleClose={() => {}} severity="neutral" className="flex flex-col space-y-2">
+        <Alert.Header className="-mt-2">
+          <Alert.Title>{notification.title}</Alert.Title>
+          <span className="inline-block ml-auto text-xs text-gray-400">{notification.date}</span>
+          <Alert.CloseButton className="ml-1" />
+        </Alert.Header>
+        <p>{notification.content}</p>
+        {notification.link && (
+          <a href={notification.link.url} className="block text-secondary-300">
+            {notification.link.label}
+          </a>
+        )}
+        {notification.action && (
+          <Button
+            size="xs"
+            borderless
+            theme="secondary"
+            className="ml-auto w-max"
+            onClick={notification.action.callback}
+          >
+            {notification.action.label}
+          </Button>
+        )}
+      </Alert>
+    ))}
     {/* <Alert handleClose={() => {}} severity="neutral">
       <Alert.Header className="-mt-2">
         <Alert.Title>100 New Credits</Alert.Title>
