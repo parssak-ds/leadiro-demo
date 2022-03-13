@@ -37,12 +37,12 @@ export default function HomePage() {
     <>
       <div className="flex justify-between">
         <h1 className="h1">Dashboard</h1>
-        <div className="px-2 py-1">Insert tabs here</div>
+        <div className="hidden px-2 py-1 lg:block">Insert tabs here</div>
       </div>
       <hr className="my-8" />
 
-      {/* Left hand side */}
-      <div className="grid-cols-8 gap-8 space-y-4 lg:grid lg:space-y-0">
+      <div className="grid-cols-8 gap-8 pb-4 space-y-4 lg:grid lg:space-y-0">
+        {/* Left hand side */}
         <div className="col-span-5 space-y-4 divide-y">
           {/* Top Alerts */}
           <section className="grid gap-2 md:grid-cols-2">
@@ -69,7 +69,7 @@ export default function HomePage() {
               {searches.map((search) => (
                 <Badge key={search} size="lg" className="px-2" type="gray" onClick={() => {}}>
                   <SearchIcon className="w-4 h-4 mr-1.5" />
-                  <span className="text-gray-500">{search}</span>
+                  {search}
                 </Badge>
               ))}
             </div>

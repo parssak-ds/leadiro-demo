@@ -1,16 +1,6 @@
 import React, { Fragment, useState } from "react";
-import { Dialog, Menu, Transition } from "@headlessui/react";
-import {
-  BellIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  FolderIcon,
-  HomeIcon,
-  InboxIcon,
-  MenuAlt2Icon,
-  UsersIcon,
-  XIcon,
-} from "@heroicons/react/outline";
+import { Dialog, Transition } from "@headlessui/react";
+import { BellIcon, MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
 import { Navigation } from "./Navigation";
 import { Avatar, Dropdown } from "demandscience-ui";
 
@@ -76,7 +66,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <Navigation />
       </div>
 
-      <div className="flex flex-col flex-1 h-full mx-auto md:pl-12 xl:max-w-7xl">
+      <div className="flex flex-col flex-1 h-full mx-auto md:pl-12 max-w-screen-2xl">
         {/* Top bar */}
         <div className="fixed top-0 left-0 right-0 z-10 flex flex-shrink-0 h-16 bg-white shadow">
           <button
@@ -105,7 +95,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 options={[
                   {
                     label: "Profile",
-                    onClick: () => {},
+                    action: () => {},
                   },
                 ]}
                 buttonType="custom"
@@ -122,8 +112,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Main content */}
-        <main className="h-screen pt-20 pb-6">
-          <div className="h-full px-4 mx-auto md:max-w-8xl sm:px-6 md:px-8 md:pt-6">{children}</div>
+        <main className="h-screen pt-20">
+          <div className="h-full px-4 mx-auto sm:px-6 md:px-8 md:pt-6">{children}</div>
         </main>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import SearchTopBar from "components/search/SearchTopBar";
-import { Accordian, Button, Card, Checkbox, Dropdown, Tabs } from "demandscience-ui";
+import { Accordion, Button, Card, Checkbox, Dropdown, Tabs } from "demandscience-ui";
 import React from "react";
 
 type Props = {};
@@ -13,18 +13,18 @@ export default function SearchPage({}: Props) {
           {/* Filter Bar */}
           <h2 className="pb-4 mb-4 border-b h2">Filters</h2>
           <div className="space-y-4">
-            <Accordian summary="Company" borderless defaultOpen>
+            <Accordion summary="Company" borderless defaultOpen>
               Content
-            </Accordian>
-            <Accordian summary="People" borderless defaultOpen>
+            </Accordion>
+            <Accordion summary="People" borderless defaultOpen>
               Content
-            </Accordian>
-            <Accordian summary="Sales Signals" borderless defaultOpen>
+            </Accordion>
+            <Accordion summary="Sales Signals" borderless defaultOpen>
               Content
-            </Accordian>
-            <Accordian summary="Lists" borderless>
+            </Accordion>
+            <Accordion summary="Lists" borderless>
               Content
-            </Accordian>
+            </Accordion>
           </div>
         </div>
 
@@ -43,23 +43,23 @@ export default function SearchPage({}: Props) {
               <Tabs.Panel>
                 <SearchTopBar />
               </Tabs.Panel>
-              <Tabs.Panel className="grid h-full gap-4 pt-4 pb-24 overflow-x-visible lg:overflow-y-auto md:grid-cols-2">
-                <Card size="md" className="min-h-[16rem] grid place-items-center">
+              <Tabs.Panel className="grid h-full gap-4 pt-4 overflow-y-auto md:grid-cols-2">
+                <Card size="md" className="min-h-[16rem] grid place-items-center" elevation="none">
                   Content
                 </Card>
-                <Card size="md" className="min-h-[16rem] grid place-items-center">
+                <Card size="md" className="min-h-[16rem] grid place-items-center" elevation="none">
                   Content
                 </Card>
-                <Card size="md" className="min-h-[16rem] grid place-items-center">
+                <Card size="md" className="min-h-[16rem] grid place-items-center" elevation="none">
                   Content
                 </Card>
-                <Card size="md" className="min-h-[16rem] grid place-items-center">
+                <Card size="md" className="min-h-[16rem] grid place-items-center" elevation="none">
                   Content
                 </Card>
-                <Card size="md" className="min-h-[16rem] grid place-items-center">
+                <Card size="md" className="min-h-[16rem] grid place-items-center" elevation="none">
                   Content
                 </Card>
-                <Card size="md" className="min-h-[16rem] grid place-items-center">
+                <Card size="md" className="min-h-[16rem] grid place-items-center" elevation="none">
                   Content
                 </Card>
               </Tabs.Panel>
