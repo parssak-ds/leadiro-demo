@@ -8,7 +8,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen lg:h-screen lg:overflow-hidden">
+    <>
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog as="div" className="fixed inset-0 z-40 flex md:hidden" onClose={setSidebarOpen}>
           <Transition.Child
@@ -62,11 +62,11 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       </Transition.Root>
 
       {/* Static sidebar for desktop */}
-      <div className="hidden mt-16 transition-all duration-300 md:flex group md:w-14 hover:md:w-48 md:flex-col md:fixed md:inset-y-0">
+      <div className="z-10 hidden mt-16 transition-all duration-300 md:flex group md:w-14 hover:md:w-48 md:flex-col md:fixed md:inset-y-0">
         <Navigation />
       </div>
 
-      <div className="flex flex-col flex-1 h-full mx-auto md:pl-12 max-w-screen-2xl">
+      <div className="mx-auto md:pl-14 max-w-screen-2xl">
         {/* Top bar */}
         <div className="fixed top-0 left-0 right-0 z-10 flex flex-shrink-0 h-16 bg-white shadow">
           <button
@@ -112,8 +112,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Main content */}
-        <main className="px-4 pt-24 md:pt-28 sm:px-6 md:px-8">{children}</main>
+        <main className="relative min-h-screen bg-orange-200 md:h-screen">
+          <div className="inset-0 flex flex-col h-full px-4 pt-24 pb-8 bg-pink-400 lg:absolute xl:overflow-hidden md:pt-28 sm:px-6 md:px-8">
+            {children}
+          </div>
+        </main>
       </div>
-    </div>
+    </>
   );
 }
