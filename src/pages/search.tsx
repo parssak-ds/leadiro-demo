@@ -244,7 +244,7 @@ export default function SearchPage({}: Props) {
         {/* Filter Bar */}
         <div className="w-full lg:max-w-xs md:mr-8">
           <h2 className="pb-4 border-b h2">Filters</h2>
-          <div className="space-y-4">
+          <div className="space-y-4 text-sm">
             <Accordion borderless defaultOpen>
               <Accordion.Summary className="px-0">Company</Accordion.Summary>
               <Accordion.Content className="px-0">Content</Accordion.Content>
