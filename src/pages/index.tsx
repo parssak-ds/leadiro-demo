@@ -8,7 +8,7 @@ import {
 import { PlusIcon } from "@heroicons/react/solid";
 import DashboardSection from "components/dashboard/DashboardSection";
 import DashboardListItem from "components/dashboard/DashboardListItem";
-import { Alert, Badge, Button, Card } from "demandscience-ui";
+import { Alert, Badge, Button, Progress } from "demandscience-ui";
 
 export default function HomePage() {
   const searches = [
@@ -46,20 +46,26 @@ export default function HomePage() {
         <div className="col-span-5 space-y-4 divide-y">
           {/* Top Alerts */}
           <section className="grid gap-2 md:grid-cols-2">
-            <Alert>
-              <Alert.Title>Credits used</Alert.Title>
-              <p className="font-medium text-blue-500">Replenishes on March 1, 2022</p>
+            <Alert severity="neutral">
+              <Alert.Title>Credit Usage</Alert.Title>
+              <p className="mt-2 font-medium text-blue-500">Replenishes on March 1, 2022</p>
               <div className="mt-4 space-x-1">
                 <Badge type="red">98 Credits used</Badge>
                 <Badge type="gray">3 credits left</Badge>
               </div>
+              <Progress value={58} size="sm" className="mt-4" />
             </Alert>
             <Alert handleClose={() => {}}>
-              <Alert.Title>Low Credits</Alert.Title>
-              <p>You are running low on credits</p>
-              <Button borderless className="!p-0 mt-2" theme="secondary">
-                Buy more credits <ArrowRightIcon className="w-4 h-4 ml-2" />
-              </Button>
+              <Alert.Header>
+                <Alert.CloseButton className="!p-1" />
+              </Alert.Header>
+              <div className="mt-2 space-y-1">
+                <Alert.Title>Low Credits</Alert.Title>
+                <p>You are running low on credits</p>
+                <Button borderless className="!p-0 mt-2" theme="secondary">
+                  Buy more credits <ArrowRightIcon className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
             </Alert>
           </section>
 

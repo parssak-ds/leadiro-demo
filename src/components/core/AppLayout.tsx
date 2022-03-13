@@ -112,9 +112,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Main content */}
-        <main className="h-screen pt-20">
-          <div className="h-full px-4 mx-auto sm:px-6 md:px-8 md:pt-6">{children}</div>
-        </main>
+        <main className="px-4 pt-24 md:pt-28 sm:px-6 md:px-8">{children}</main>
       </div>
     </div>
   );
