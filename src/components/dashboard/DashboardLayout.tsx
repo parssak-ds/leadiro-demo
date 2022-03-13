@@ -65,7 +65,9 @@ const DashboardLayoutNotifications = ({ notifications }: { notifications: INotif
   </div>
 );
 
-export const DashboardLayout = Object.assign(DashboardLayoutRoot, {
+const DashboardLayout = Object.assign(DashboardLayoutRoot, {
   Main: DashboardLayoutMain,
   Notifications: DashboardLayoutNotifications,
 });
+
+export default DashboardLayout;
