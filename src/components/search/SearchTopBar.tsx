@@ -5,7 +5,7 @@ type Props = {};
 
 export default function SearchTopBar({}: Props) {
   return (
-    <div className="flex flex-col py-2 space-y-3 text-sm text-gray-500 border-b sm:space-y-0 sm:items-center sm:flex-row">
+    <div className="flex flex-col py-2 space-y-3 text-sm text-gray-500 border-b md:px-4 sm:space-y-0 sm:items-center sm:flex-row">
       <div className="flex items-center space-x-3">
         <Checkbox onChange={(val) => {}} checked={true} />
         <div>3 selected</div>
@@ -13,11 +13,19 @@ export default function SearchTopBar({}: Props) {
         <Dropdown
           options={[
             {
-              label: "All",
+              label: "View only selected",
               action: () => {},
             },
             {
-              label: "None",
+              label: "Reveal",
+              action: () => {},
+            },
+            {
+              label: "Browse on LinkedIn",
+              action: () => {},
+            },
+            {
+              label: "Clear selection",
               action: () => {},
             },
           ]}
@@ -26,21 +34,19 @@ export default function SearchTopBar({}: Props) {
             size: "md",
           }}
           className="grid place-items-center"
+          dropdownClassName="z-10"
+          origin="bottom-left"
         />
       </div>
       <div className="flex items-center space-x-3 sm:pl-3 sm:ml-auto">
         <Dropdown
           options={[
             {
-              label: "All",
+              label: "Company Revenue",
               action: () => {},
             },
             {
-              label: "Sort by company revenue",
-              action: () => {},
-            },
-            {
-              label: "Sort by other",
+              label: "Headcount",
               action: () => {},
             },
           ]}
@@ -49,6 +55,7 @@ export default function SearchTopBar({}: Props) {
             borderless: true,
             size: "xs",
           }}
+          dropdownClassName="z-10"
         >
           Sort by company revenue
         </Dropdown>

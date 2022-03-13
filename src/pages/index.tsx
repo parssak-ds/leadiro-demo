@@ -2,7 +2,7 @@ import { ArrowRightIcon, SearchIcon } from "@heroicons/react/outline";
 import DashboardSection from "components/dashboard/DashboardSection";
 import DashboardListItem from "components/dashboard/DashboardListItem";
 import DashboardLayout from "components/dashboard/DashboardLayout";
-import { Alert, Avatar, Badge, Button, Card, Progress } from "demandscience-ui";
+import { Alert, Badge, Button, Card, Progress } from "demandscience-ui";
 import { PlusIcon } from "@heroicons/react/solid";
 
 export default function HomePage() {
@@ -74,13 +74,11 @@ export default function HomePage() {
             <Alert.Header>
               <Alert.CloseButton />
             </Alert.Header>
-            <div>
-              <Alert.Title>Low Credits</Alert.Title>
-              <p className="mt-2 ">You are running low on credits</p>
-              <Button borderless className="!p-0 mt-3" theme="secondary">
-                Buy more credits <ArrowRightIcon className="w-4 h-4 ml-2" />
-              </Button>
-            </div>
+            <Alert.Title>Low Credits</Alert.Title>
+            <p className="mt-2 ">You are running low on credits</p>
+            <Button borderless className="!p-0 mt-3" theme="secondary">
+              Buy more credits <ArrowRightIcon className="w-4 h-4 ml-2" />
+            </Button>
           </Alert>
         </section>
 
@@ -117,47 +115,6 @@ export default function HomePage() {
 
       {/* Right hand side */}
       <DashboardLayout.Notifications notifications={notifications} />
-      {/* <div className="flex items-center">
-            <h2 className="h2">Notifications</h2>
-            <Badge className="ml-2">3</Badge>
-            <Button borderless theme="secondary" className="ml-auto">
-              Mark as read
-            </Button>
-          </div>
-          <Alert handleClose={() => {}} severity="neutral">
-            <Alert.Header className="-mt-2">
-              <Alert.Title>100 New Credits</Alert.Title>
-              <span className="inline-block ml-auto text-xs text-gray-400">Feb 12, 2022</span>
-              <Alert.CloseButton className="ml-1" />
-            </Alert.Header>
-            <p>You have received your monthly quota of 100 credits. </p>
-          </Alert>
-          <Alert handleClose={() => {}} severity="neutral">
-            <Alert.Header className="-mt-2">
-              <Avatar src="" alt="Jason Smith" />
-              <Alert.Title className="ml-2">Shared List</Alert.Title>
-              <span className="inline-block ml-auto text-xs text-gray-400">Feb 12, 2022</span>
-              <Alert.CloseButton className="ml-1" />
-            </Alert.Header>
-            <div className="flex flex-col mt-2 space-y-2">
-              <p>Jason Smith shared a list with you. </p>
-              <a href="" className="block text-secondary-300">
-                US Central large companies
-              </a>
-              <Button size="xs" borderless theme="secondary" className="ml-auto w-max">
-                View List
-              </Button>
-            </div>
-          </Alert>
-          <Alert handleClose={() => {}} severity="neutral">
-            <Alert.Header className="-mt-2">
-              <Alert.Title>50 New Credits</Alert.Title>
-              <span className="inline-block ml-auto text-xs text-gray-400">Feb 12, 2022</span>
-              <Alert.CloseButton className="ml-1" />
-            </Alert.Header>
-            <p>You have received your monthly quota of 100 credits. </p>
-          </Alert>
-        </DashboardLayout.Notifications> */}
     </DashboardLayout>
   );
 }

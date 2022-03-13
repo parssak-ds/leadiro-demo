@@ -30,7 +30,12 @@ const DashboardLayoutNotifications = ({ notifications }: { notifications: INotif
       </Button>
     </div>
     {notifications.map((notification) => (
-      <Alert key={notification.title} handleClose={() => {}} severity="neutral" className="flex flex-col space-y-2">
+      <Alert
+        key={notification.title}
+        handleClose={() => {}}
+        severity="neutral"
+        className="flex flex-col space-y-2"
+      >
         <Alert.Header className="-mt-2">
           <Alert.Title>{notification.title}</Alert.Title>
           <span className="inline-block ml-auto text-xs text-gray-400">{notification.date}</span>
@@ -55,39 +60,6 @@ const DashboardLayoutNotifications = ({ notifications }: { notifications: INotif
         )}
       </Alert>
     ))}
-    {/* <Alert handleClose={() => {}} severity="neutral">
-      <Alert.Header className="-mt-2">
-        <Alert.Title>100 New Credits</Alert.Title>
-        <span className="inline-block ml-auto text-xs text-gray-400">Feb 12, 2022</span>
-        <Alert.CloseButton className="ml-1" />
-      </Alert.Header>
-      <p>You have received your monthly quota of 100 credits. </p>
-    </Alert>
-    <Alert handleClose={() => {}} severity="neutral">
-      <Alert.Header className="-mt-2">
-        <Avatar src="" alt="Jason Smith" />
-        <Alert.Title className="ml-2">Shared List</Alert.Title>
-        <span className="inline-block ml-auto text-xs text-gray-400">Feb 12, 2022</span>
-        <Alert.CloseButton className="ml-1" />
-      </Alert.Header>
-      <div className="flex flex-col mt-2 space-y-2">
-        <p>Jason Smith shared a list with you. </p>
-        <a href="" className="block text-secondary-300">
-          US Central large companies
-        </a>
-        <Button size="xs" borderless theme="secondary" className="ml-auto w-max">
-          View List
-        </Button>
-      </div>
-    </Alert>
-    <Alert handleClose={() => {}} severity="neutral">
-      <Alert.Header className="-mt-2">
-        <Alert.Title>50 New Credits</Alert.Title>
-        <span className="inline-block ml-auto text-xs text-gray-400">Feb 12, 2022</span>
-        <Alert.CloseButton className="ml-1" />
-      </Alert.Header>
-      <p>You have received your monthly quota of 100 credits. </p>
-    </Alert> */}
   </div>
 );
 
