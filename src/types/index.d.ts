@@ -12,7 +12,7 @@ interface INotification {
   };
 }
 
-interface Socials {
+interface ISocials {
   twitter?: string;
   facebook?: string;
   linkedin?: string;
@@ -22,10 +22,17 @@ interface Socials {
   url?: string;
 }
 
-interface SearchResult {
+interface ISearchResult {
   id: string;
   name: string;
   title: string;
-  socials: Socials;
+  socials: ISocials;
   info: React.ReactNode;
+}
+
+interface IDataProfileOption {
+  checked: boolean;
+  title: string;
+  progress: number;
+  count: number;
 }

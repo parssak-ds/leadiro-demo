@@ -66,7 +66,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <Navigation />
       </div>
 
-      <div className="mx-auto md:pl-14 max-w-screen-2xl">
+      <div className="max-w-screen-xl mx-auto md:pl-14">
         {/* Top bar */}
         <div className="fixed top-0 left-0 right-0 z-10 flex flex-shrink-0 h-16 bg-white shadow-xl shadow-gray-400/10">
           <button

@@ -4,7 +4,7 @@ import { Avatar, Checkbox, Dropdown } from "demandscience-ui";
 import React from "react";
 
 interface Props {
-  result: SearchResult;
+  result: ISearchResult;
   selected: boolean;
 }
 
@@ -12,7 +12,7 @@ export default function SearchListItem({ result, selected }: Props) {
   const { name, title, socials, info } = result;
   return (
     <li
-      className={`grid md:grid-cols-3 md:px-4 py-4 gap-4 text-sm transition 
+      className={`grid md:grid-cols-3 md:px-4 py-4 gap-4 text-sm transition border-b
       ${selected ? "hover:bg-primary-100" : "hover:bg-gray-50"}`}
     >
       <div className="flex space-x-4">

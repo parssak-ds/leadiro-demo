@@ -1,3 +1,12 @@
+import {
+  UsersIcon,
+  OfficeBuildingIcon,
+  UserIcon,
+  StarIcon,
+  LocationMarkerIcon,
+  ShoppingBagIcon,
+} from "@heroicons/react/outline";
+import DataProfileCard, { DataProfileCardProps } from "components/dashboard/DataProfileCard";
 import SearchListItem from "components/search/SearchListItem";
 import SearchTopBar from "components/search/SearchTopBar";
 import { Accordion, Card, Tabs } from "demandscience-ui";
@@ -5,7 +14,7 @@ import React from "react";
 
 type Props = {};
 
-const baseSearchResults: SearchResult[] = [
+const baseSearchResults: ISearchResult[] = [
   {
     id: "1",
     name: "Jenny Wilson",
@@ -107,15 +116,134 @@ const generateNResults = (n: number) => {
 
   return results;
 };
+
+const dataProfileOptions: DataProfileCardProps[] = [
+  {
+    title: "Management Levels",
+    icon: <StarIcon className="w-8 h-8 mr-4 text-indigo-600" />,
+    options: [
+      {
+        title: "Manager",
+        checked: true,
+        progress: 40,
+        count: 100,
+      },
+      {
+        title: "Director",
+        checked: false,
+        progress: 60,
+        count: 200,
+      },
+      {
+        title: "Executive",
+        checked: true,
+        progress: 80,
+        count: 300,
+      },
+    ],
+  },
+  {
+    title: "Revenue",
+    icon: <UsersIcon className="w-8 h-8 mr-4 text-indigo-600" />,
+    options: [
+      {
+        title: "$10-50M",
+        checked: false,
+        progress: 40,
+        count: 100,
+      },
+      {
+        title: "$50-100M",
+        checked: false,
+        progress: 60,
+        count: 200,
+      },
+      {
+        title: "$1-10M",
+        checked: false,
+        progress: 80,
+        count: 300,
+      },
+      {
+        title: "$100-500M",
+        checked: false,
+        progress: 100,
+        count: 400,
+      },
+    ],
+  },
+  {
+    title: "Location",
+    icon: <LocationMarkerIcon className="w-8 h-8 mr-4 text-indigo-600" />,
+    options: [
+      {
+        title: "New York",
+        checked: false,
+        progress: 5,
+        count: 100,
+      },
+      {
+        title: "San Diego",
+        checked: false,
+        progress: 10,
+        count: 200,
+      },
+      {
+        title: "Atlanta",
+        checked: false,
+        progress: 15,
+        count: 300,
+      },
+      {
+        title: "Washington",
+        checked: false,
+        progress: 20,
+
+        count: 400,
+      },
+    ],
+  },
+  {
+    title: "Industry",
+    icon: <ShoppingBagIcon className="w-8 h-8 mr-4 text-indigo-600" />,
+    options: [
+      {
+        title: "Technology",
+        checked: false,
+        progress: 5,
+        count: 100,
+      },
+      {
+        title: "Healthcare",
+        checked: false,
+        progress: 10,
+        count: 200,
+      },
+      {
+        title: "Retail",
+        checked: false,
+        progress: 15,
+        count: 300,
+      },
+      {
+        title: "Entertainment",
+        checked: false,
+        progress: 20,
+        count: 400,
+      },
+    ],
+  },
+];
+
 const searchResults = generateNResults(20);
 export default function SearchPage({}: Props) {
   return (
     <>
-      <h1 className="mb-8 h1">Find Leads</h1>
-      <div className="grid flex-1 gap-8 lg:grid-cols-5">
+      <h1 className="mb-8 h1">Search</h1>
+      <div className="flex flex-col flex-1 w-full lg:flex-row">
         {/* Filter Bar */}
-        <div>
-          <h2 className="pb-4 mb-4 border-b h2">Filters</h2>
+        <div className="w-full lg:max-w-xs md:mr-8">
+          <h2 className="pb-4 border-b h2">Filters</h2>
           <div className="space-y-4">
             <Accordion borderless defaultOpen>
               <Accordion.Summary className="px-0">Company</Accordion.Summary>
@@ -137,7 +265,7 @@ export default function SearchPage({}: Props) {
         </div>
 
         {/* Main Section */}
-        <div className="flex flex-col lg:col-span-4">
+        <div className="flex flex-col w-full">
           <Tabs>
             <Tabs.List className="pb-2 border-b md:px-4">
               <Tabs.Item>People</Tabs.Item>
@@ -147,7 +275,7 @@ export default function SearchPage({}: Props) {
             <Tabs.Panels className="flex-1 lg:relative">
               <Tabs.Panel>
                 <SearchTopBar />
-                <ul className="inset-0 grid gap-4 py-1 overflow-y-auto lg:mt-12 lg:absolute">
+                <ul className="inset-0 py-1 overflow-y-auto lg:mt-14 lg:absolute">
                   {searchResults.map((result) => (
                     <SearchListItem key={result.name} result={result} selected={false} />
                   ))}
@@ -155,31 +283,45 @@ export default function SearchPage({}: Props) {
               </Tabs.Panel>
               <Tabs.Panel>
                 <SearchTopBar />
-                <ul className="inset-0 grid gap-4 py-1 overflow-y-auto lg:mt-12 lg:absolute">
+                <ul className="inset-0 py-1 overflow-y-auto lg:mt-14 lg:absolute">
                   {searchResults.map((result) => (
                     <SearchListItem key={result.name} result={result} selected={false} />
                   ))}
                 </ul>
               </Tabs.Panel>
-              <Tabs.Panel className="inset-0 grid gap-4 py-1 my-3 overflow-y-auto lg:absolute md:grid-cols-2">
-                <Card size="md" className="min-h-[16rem] grid place-items-center" elevation="none">
-                  Content
-                </Card>
-                <Card size="md" className="min-h-[16rem] grid place-items-center" elevation="none">
-                  Content
-                </Card>
-                <Card size="md" className="min-h-[16rem] grid place-items-center" elevation="none">
-                  Content
-                </Card>
-                <Card size="md" className="min-h-[16rem] grid place-items-center" elevation="none">
-                  Content
-                </Card>
-                <Card size="md" className="min-h-[16rem] grid place-items-center" elevation="none">
-                  Content
-                </Card>
-                <Card size="md" className="min-h-[16rem] grid place-items-center" elevation="none">
-                  Content
-                </Card>
+              <Tabs.Panel className="inset-0 py-1 my-3 overflow-auto text-lg lg:absolute">
+                <div className="grid gap-4 md:grid-cols-2">
+                  <Card size="md" elevation="none">
+                    <Card.Body>
+                      <ul className="space-y-8">
+                        <li className="flex">
+                          <UsersIcon className="w-6 h-6 mr-4 text-indigo-600" />
+                          <div>
+                            <h3>Contacts</h3>
+                            <h5 className="mt-1 text-xl text-black">584,893</h5>
+                          </div>
+                        </li>
+                        <li className="flex">
+                          <OfficeBuildingIcon className="w-6 h-6 mr-4 text-indigo-600" />
+                          <div>
+                            <h3>Companies</h3>
+                            <h5 className="mt-1 text-xl text-black">848</h5>
+                          </div>
+                        </li>
+                        <li className="flex">
+                          <UserIcon className="w-6 h-6 mr-4 text-indigo-600" />
+                          <div>
+                            <h3>Contacts per Company</h3>
+                            <h5 className="mt-1 text-xl text-black">4,572</h5>
+                          </div>
+                        </li>
+                      </ul>
+                    </Card.Body>
+                  </Card>
+                  {dataProfileOptions.map(({ title, options, icon }) => (
+                    <DataProfileCard key={title} title={title} options={options} icon={icon} />
+                  ))}
+                </div>
               </Tabs.Panel>
             </Tabs.Panels>
           </Tabs>
