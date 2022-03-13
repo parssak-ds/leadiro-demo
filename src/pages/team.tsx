@@ -4,6 +4,8 @@ type Props = {}
 
 export default function TeamPage({}: Props) {
   return (
-    <div>TeamPage</div>
+    <>
+      <h1 className="mb-8 h1">Team</h1>
+    </>
   )
 }

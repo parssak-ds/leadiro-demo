@@ -11,7 +11,16 @@ export default function SearchTopBar({}: Props) {
         <div>3 selected</div>
         <Button size="xs">Export</Button>
         <Dropdown
-          options={[]}
+          options={[
+            {
+              label: "All",
+              action: () => {},
+            },
+            {
+              label: "None",
+              action: () => {},
+            },
+          ]}
           buttonType="ellipsis"
           buttonProps={{
             size: "md",

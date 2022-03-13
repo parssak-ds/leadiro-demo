@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 export default function ListPage({}: Props) {
   return (
-    <div>ListPage</div>
-  )
+    <>
+      <h1 className="mb-8 h1">Lists</h1>
+    </>
+  );
 }

@@ -112,8 +112,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Main content */}
-        <main className="relative min-h-screen bg-orange-200 md:h-screen">
-          <div className="inset-0 flex flex-col h-full px-4 pt-24 pb-8 bg-pink-400 lg:absolute xl:overflow-hidden md:pt-28 sm:px-6 md:px-8">
+        <main className="min-h-screen md:h-screen">
+          <div className="flex flex-col h-full px-4 pt-24 pb-8 md:pt-28 sm:px-6 md:px-8">
             {children}
           </div>
         </main>

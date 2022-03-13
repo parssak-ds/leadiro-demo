@@ -1,14 +1,8 @@
-import {
-  ArrowRightIcon,
-  ChevronRightIcon,
-  LockClosedIcon,
-  SearchIcon,
-  UserIcon,
-} from "@heroicons/react/outline";
+import { ArrowRightIcon, SearchIcon } from "@heroicons/react/outline";
 import { PlusIcon } from "@heroicons/react/solid";
 import DashboardSection from "components/dashboard/DashboardSection";
 import DashboardListItem from "components/dashboard/DashboardListItem";
-import { Alert, Badge, Button, Progress } from "demandscience-ui";
+import { Alert, Avatar, Badge, Button, Card, Progress } from "demandscience-ui";
 
 export default function HomePage() {
   const searches = [
@@ -39,30 +33,31 @@ export default function HomePage() {
         <h1 className="h1">Dashboard</h1>
         <div className="hidden px-2 py-1 lg:block">Insert tabs here</div>
       </div>
-      <hr className="my-8" />
-
-      <div className="grid-cols-8 gap-8 pb-4 space-y-4 lg:grid lg:space-y-0">
+      <hr className="my-4 md:my-8" />
+      <div className="gap-12 pb-4 space-y-4 lg:grid-cols-8 xl:grid-cols-7 lg:grid lg:space-y-0">
         {/* Left hand side */}
         <div className="col-span-5 space-y-4 divide-y">
           {/* Top Alerts */}
           <section className="grid gap-2 md:grid-cols-2">
-            <Alert severity="neutral">
-              <Alert.Title>Credit Usage</Alert.Title>
-              <p className="mt-2 font-medium text-blue-500">Replenishes on March 1, 2022</p>
-              <div className="mt-4 space-x-1">
-                <Badge type="red">98 Credits used</Badge>
-                <Badge type="gray">3 credits left</Badge>
-              </div>
-              <Progress value={58} size="sm" className="mt-4" />
-            </Alert>
+            <Card elevation="none" size="md">
+              <Card.Body className="flex flex-col">
+                <Card.Title>Credits Usage</Card.Title>
+                <p className="mt-2 font-medium text-blue-500">Replenishes on March 1, 2022</p>
+                <div className="mt-4 space-x-1">
+                  <Badge type="red">98 Credits used</Badge>
+                  <Badge type="gray">3 credits left</Badge>
+                </div>
+                <Progress value={58} size="sm" className="mt-4" />
+              </Card.Body>
+            </Card>
             <Alert handleClose={() => {}}>
               <Alert.Header>
-                <Alert.CloseButton className="!p-1" />
+                <Alert.CloseButton />
               </Alert.Header>
-              <div className="mt-2 space-y-1">
+              <div>
                 <Alert.Title>Low Credits</Alert.Title>
-                <p>You are running low on credits</p>
-                <Button borderless className="!p-0 mt-2" theme="secondary">
+                <p className="mt-2 ">You are running low on credits</p>
+                <Button borderless className="!p-0 mt-3" theme="secondary">
                   Buy more credits <ArrowRightIcon className="w-4 h-4 ml-2" />
                 </Button>
               </div>
@@ -101,25 +96,46 @@ export default function HomePage() {
         </div>
 
         {/* Right hand side */}
-        <div className="col-span-3 space-y-4">
+        <div className="col-span-3 space-y-4 xl:col-span-2">
           <div className="flex items-center">
             <h2 className="h2">Notifications</h2>
-            <Badge className="ml-2">4</Badge>
+            <Badge className="ml-2">3</Badge>
             <Button borderless theme="secondary" className="ml-auto">
               Mark as read
             </Button>
           </div>
-          <Alert handleClose={() => {}}>
-            <Alert.Title>100 New Credits</Alert.Title>
+          <Alert handleClose={() => {}} severity="neutral">
+            <Alert.Header className="-mt-2">
+              <Alert.Title>100 New Credits</Alert.Title>
+              <span className="inline-block ml-auto text-xs text-gray-400">Feb 12, 2022</span>
+              <Alert.CloseButton className="ml-1" />
+            </Alert.Header>
             <p>You have received your monthly quota of 100 credits. </p>
           </Alert>
-          <Alert handleClose={() => {}}>
-            <Alert.Title>Shared List</Alert.Title>
-            <p>Jason Smith shared a list with you. </p>
+          <Alert handleClose={() => {}} severity="neutral">
+            <Alert.Header className="-mt-2">
+              <Avatar src="" alt="Jason Smith" />
+              <Alert.Title className="ml-2">Shared List</Alert.Title>
+              <span className="inline-block ml-auto text-xs text-gray-400">Feb 12, 2022</span>
+              <Alert.CloseButton className="ml-1" />
+            </Alert.Header>
+            <div className="flex flex-col mt-2 space-y-2">
+              <p>Jason Smith shared a list with you. </p>
+              <a href="" className="block text-secondary-300">
+                US Central large companies
+              </a>
+              <Button size="xs" borderless theme="secondary" className="ml-auto w-max">
+                View List
+              </Button>
+            </div>
           </Alert>
-          <Alert handleClose={() => {}}>
-            <Alert.Title>50 New Credits</Alert.Title>
-            <p>You have received your monthly quota of 50 credits. </p>
+          <Alert handleClose={() => {}} severity="neutral">
+            <Alert.Header className="-mt-2">
+              <Alert.Title>50 New Credits</Alert.Title>
+              <span className="inline-block ml-auto text-xs text-gray-400">Feb 12, 2022</span>
+              <Alert.CloseButton className="ml-1" />
+            </Alert.Header>
+            <p>You have received your monthly quota of 100 credits. </p>
           </Alert>
         </div>
       </div>
