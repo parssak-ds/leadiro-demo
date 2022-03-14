@@ -242,7 +242,7 @@ export default function SearchPage({}: Props) {
       <h1 className="mb-8 h1">Search</h1>
       <div className="flex flex-col flex-1 w-full lg:flex-row">
         {/* Filter Bar */}
-        <div className="w-full lg:max-w-xs md:mr-8">
+        <div className="w-full mb-8 lg:max-w-xs md:mb-0 md:mr-8">
           <h2 className="pb-4 border-b h2">Filters</h2>
           <div className="space-y-4 text-sm">
             <Accordion borderless defaultOpen>
