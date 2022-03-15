@@ -31,7 +31,7 @@ export default function SearchListItem({
           }}
           className="self-start"
         />
-        <Avatar alt={name} size="xs" />
+        <Avatar alt={name} size="xs" className="hidden md:grid" />
         <div className="text-gray-500">
           <h3 className="font-medium">{name}</h3>
           <p className="font-light ">{title}</p>
