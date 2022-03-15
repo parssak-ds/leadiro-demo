@@ -5,7 +5,7 @@ const DashboardLayoutRoot = ({ children }) => (
   <>
     <div className="flex justify-between">
       <h1 className="h1">Dashboard</h1>
-      <div className="hidden px-2 py-1 lg:block">Insert tabs here</div>
+      {/* <div className="hidden px-2 py-1 lg:block">Insert tabs here</div> */}
     </div>
 
     <hr className="my-4 md:my-8" />
