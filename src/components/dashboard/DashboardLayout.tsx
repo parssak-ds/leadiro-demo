@@ -39,7 +39,7 @@ const DashboardLayoutNotifications = ({ notifications }: { notifications: INotif
         <Alert.Header className="-mt-2">
           <Alert.Title>{notification.title}</Alert.Title>
           <span className="inline-block ml-auto text-xs text-gray-400">{notification.date}</span>
-          <Alert.CloseButton className="ml-1" />
+          <Alert.CloseButton className="ml-2" />
         </Alert.Header>
         <p>{notification.content}</p>
         {notification.link && (

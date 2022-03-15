@@ -1,6 +1,13 @@
-import { DeviceMobileIcon, MailIcon, PhoneIcon } from "@heroicons/react/outline";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  DeviceMobileIcon,
+  MailIcon,
+  PhoneIcon,
+  XIcon,
+} from "@heroicons/react/outline";
 import { Icon } from "components/utils/Icon";
-import { Avatar, Badge, Drawer } from "demandscience-ui";
+import { Avatar, Badge, Checkbox, Drawer, Modal } from "demandscience-ui";
 import React from "react";
 
 interface Props {
@@ -10,7 +17,16 @@ interface Props {
 export default function SearchDrawerInfo({ result }: Props) {
   return (
     <>
-      <Drawer.Section className="border-b pb-4">
+      <Drawer.Section className="border-b pb-6 mt-0 flex items-center text-gray-600">
+        <Checkbox checked onChange={(value) => {}} size="lg" />
+        <p className="ml-2">Selected</p>
+        <div className="mx-auto flex space-x-4 ">
+          <ChevronLeftIcon className="w-6 h-6 text-gray-400" />
+          <ChevronRightIcon className="w-6 h-6 " />
+        </div>
+        <XIcon className="w-6 h-6 ml-auto" />
+      </Drawer.Section>
+      <Drawer.Section className="border-b py-4">
         <div className="flex items-center">
           <Avatar alt={result.name} size="md" />
           <div className="text-sm ml-3">
@@ -62,6 +78,8 @@ export default function SearchDrawerInfo({ result }: Props) {
           )}
         </div>
       </Drawer.Section>
+
+      
     </>
   );
 }

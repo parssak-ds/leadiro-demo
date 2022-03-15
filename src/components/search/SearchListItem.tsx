@@ -24,13 +24,15 @@ export default function SearchListItem({
       onClick={() => onToggleSidebar(result)}
     >
       <div className="flex space-x-4">
-        <Checkbox
-          checked={selected}
-          onChange={(e) => {
-            onSelectionChange(result.id);
-          }}
-          className="self-start"
-        />
+        <div onClick={(e) => e.stopPropagation()}>
+          <Checkbox
+            checked={selected}
+            onChange={(e) => {
+              onSelectionChange(result.id);
+            }}
+            className="self-start"
+          />
+        </div>
         <Avatar alt={name} size="xs" className="hidden md:grid" />
         <div className="text-gray-500">
           <h3 className="font-medium">{name}</h3>
