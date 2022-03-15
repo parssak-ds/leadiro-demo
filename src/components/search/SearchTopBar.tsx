@@ -8,7 +8,12 @@ interface Props {
   openExportModal: () => void;
 }
 
-export default function SearchTopBar({ selected, toggleBulkSelect, allSelected, openExportModal }: Props) {
+export default function SearchTopBar({
+  selected,
+  toggleBulkSelect,
+  allSelected,
+  openExportModal,
+}: Props) {
   return (
     <div className="flex flex-col py-2 space-y-3 text-sm text-gray-500 border-b md:px-4 sm:space-y-0 sm:items-center sm:flex-row">
       <div className="flex items-center space-x-3">
@@ -22,7 +27,9 @@ export default function SearchTopBar({ selected, toggleBulkSelect, allSelected, 
         {selected > 0 && (
           <>
             <div>{selected} selected</div>
-            <Button onClick={openExportModal} size="xs">Export</Button>
+            <Button onClick={openExportModal} size="xs">
+              Export
+            </Button>
             <Dropdown
               options={[
                 {
