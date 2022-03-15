@@ -5,14 +5,13 @@ import {
   StarIcon,
   LocationMarkerIcon,
   ShoppingBagIcon,
+  ViewGridIcon,
 } from "@heroicons/react/outline";
 import DataProfileCard, { DataProfileCardProps } from "components/dashboard/DataProfileCard";
 import SearchListItem from "components/search/SearchListItem";
 import SearchTopBar from "components/search/SearchTopBar";
-import { Accordion, Card, Tabs } from "demandscience-ui";
-import React from "react";
-
-type Props = {};
+import { Accordion, Card, Drawer, Tabs } from "demandscience-ui";
+import React, { useState } from "react";
 
 const baseSearchResults: ISearchResult[] = [
   {
@@ -236,7 +235,52 @@ const dataProfileOptions: DataProfileCardProps[] = [
 ];
 
 const searchResults = generateNResults(20);
-export default function SearchPage({}: Props) {
+
+export default function SearchPage() {
+  const [sidebarInfo, setSidebarInfo] = useState<ISearchResult | undefined>(undefined);
+  const [selectedPeople, setSelectedPeople] = useState<string[]>([]);
+  const [selectedCompanies, setSelectedCompanies] = useState<string[]>([]);
+
+  const handleSelectPerson = (id: string) => {
+    if (selectedPeople.includes(id)) {
+      setSelectedPeople(selectedPeople.filter((personId) => personId !== id));
+    } else {
+      setSelectedPeople([...selectedPeople, id]);
+    }
+  };
+
+  const handleSelectCompany = (id: string) => {
+    if (selectedCompanies.includes(id)) {
+      setSelectedCompanies(selectedCompanies.filter((companyId) => companyId !== id));
+    } else {
+      setSelectedCompanies([...selectedCompanies, id]);
+    }
+  };
+
+  const onToggleSidebar = (result?: ISearchResult) => {
+    if (sidebarInfo || sidebarInfo?.id === result.id) {
+      setSidebarInfo(undefined);
+    } else {
+      setSidebarInfo(result);
+    }
+  };
+
+  const toggleBulkSelectPeople = (selectAll?: boolean) => {
+    if (!selectAll) {
+      setSelectedPeople([]);
+    } else {
+      setSelectedPeople(searchResults.map((result) => result.id));
+    }
+  };
+
+  const toggleBulkSelectCompanies = (selectAll?: boolean) => {
+    if (!selectAll) {
+      setSelectedCompanies([]);
+    } else {
+      setSelectedCompanies(searchResults.map((result) => result.id));
+    }
+  };
+
   return (
     <>
       <h1 className="mb-8 h1">Search</h1>
@@ -268,24 +312,52 @@ export default function SearchPage({}: Props) {
         <div className="flex flex-col w-full">
           <Tabs>
             <Tabs.List className="pb-2 border-b md:px-4">
-              <Tabs.Item>People</Tabs.Item>
-              <Tabs.Item>Companies</Tabs.Item>
-              <Tabs.Item>Data Profile</Tabs.Item>
+              <Tabs.Item>
+                <UsersIcon className="w-5 h-5 mr-2" /> People
+              </Tabs.Item>
+              <Tabs.Item>
+                <OfficeBuildingIcon className="w-5 h-5 mr-2" />
+                Companies
+              </Tabs.Item>
+              <Tabs.Item>
+                <ViewGridIcon className="w-5 h-5 mr-2" />
+                Data Profile
+              </Tabs.Item>
             </Tabs.List>
             <Tabs.Panels className="flex-1 lg:relative">
               <Tabs.Panel>
-                <SearchTopBar />
+                <SearchTopBar
+                  selected={selectedPeople.length}
+                  toggleBulkSelect={toggleBulkSelectPeople}
+                  allSelected={selectedPeople.length === searchResults.length}
+                />
                 <ul className="inset-0 py-1 overflow-y-auto lg:mt-14 lg:absolute">
                   {searchResults.map((result) => (
-                    <SearchListItem key={result.name} result={result} selected={false} />
+                    <SearchListItem
+                      key={result.name}
+                      result={result}
+                      selected={selectedPeople.includes(result.id)}
+                      onSelectionChange={handleSelectPerson}
+                      onToggleSidebar={() => onToggleSidebar(result)}
+                    />
                   ))}
                 </ul>
               </Tabs.Panel>
               <Tabs.Panel>
-                <SearchTopBar />
+                <SearchTopBar
+                  selected={selectedCompanies.length}
+                  toggleBulkSelect={toggleBulkSelectCompanies}
+                  allSelected={selectedPeople.length === searchResults.length}
+                />
                 <ul className="inset-0 py-1 overflow-y-auto lg:mt-14 lg:absolute">
                   {searchResults.map((result) => (
-                    <SearchListItem key={result.name} result={result} selected={false} />
+                    <SearchListItem
+                      key={result.name}
+                      result={result}
+                      selected={selectedCompanies.includes(result.id)}
+                      onSelectionChange={handleSelectCompany}
+                      onToggleSidebar={() => onToggleSidebar(result)}
+                    />
                   ))}
                 </ul>
               </Tabs.Panel>
@@ -327,6 +399,10 @@ export default function SearchPage({}: Props) {
           </Tabs>
         </div>
       </div>
+      <Drawer open={!!sidebarInfo} onClose={() => setSidebarInfo(undefined)} className="pt-24">
+        <Drawer.Title>Hello World</Drawer.Title>
+        <Drawer.Section></Drawer.Section>
+      </Drawer>
     </>
   );
 }

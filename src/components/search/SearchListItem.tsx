@@ -6,17 +6,31 @@ import React from "react";
 interface Props {
   result: ISearchResult;
   selected: boolean;
+  onSelectionChange: (id: string) => void;
+  onToggleSidebar: (result: ISearchResult) => void;
 }
 
-export default function SearchListItem({ result, selected }: Props) {
+export default function SearchListItem({
+  result,
+  selected,
+  onSelectionChange,
+  onToggleSidebar,
+}: Props) {
   const { name, title, socials, info } = result;
   return (
     <li
       className={`grid md:grid-cols-3 md:px-4 py-4 gap-4 text-sm transition border-b
       ${selected ? "hover:bg-primary-100" : "hover:bg-gray-50"}`}
+      onClick={() => onToggleSidebar(result)}
     >
       <div className="flex space-x-4">
-        <Checkbox checked={selected} onChange={() => {}} className="self-start" />
+        <Checkbox
+          checked={selected}
+          onChange={(e) => {
+            onSelectionChange(result.id);
+          }}
+          className="self-start"
+        />
         <Avatar alt={name} size="xs" />
         <div className="text-gray-500">
           <h3 className="font-medium">{name}</h3>

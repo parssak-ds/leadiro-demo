@@ -10,7 +10,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Transition.Root show={sidebarOpen} as={Fragment}>
-        <Dialog as="div" className="fixed inset-0 z-40 flex md:hidden" onClose={setSidebarOpen}>
+        <Dialog as="div" className="fixed inset-0 z-20 flex md:hidden" onClose={setSidebarOpen}>
           <Transition.Child
             as={Fragment}
             enter="transition-opacity ease-linear duration-300"
@@ -66,7 +66,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <Navigation />
       </div>
 
-      <div className="max-w-screen-xl mx-auto md:pl-14">
+      <div className="max-w-screen-2xl mx-auto md:pl-14">
         {/* Top bar */}
         <div className="fixed top-0 left-0 right-0 z-10 flex flex-shrink-0 h-16 bg-white shadow-xl shadow-gray-400/10">
           <button
