@@ -8,6 +8,7 @@ import {
   ViewGridIcon,
 } from "@heroicons/react/outline";
 import DataProfileCard, { DataProfileCardProps } from "components/dashboard/DataProfileCard";
+import SearchDrawerInfo from "components/search/SearchDrawerInfo";
 import SearchListItem from "components/search/SearchListItem";
 import SearchTopBar from "components/search/SearchTopBar";
 import { Accordion, Card, Drawer, Tabs } from "demandscience-ui";
@@ -119,7 +120,7 @@ const generateNResults = (n: number) => {
 const dataProfileOptions: DataProfileCardProps[] = [
   {
     title: "Management Levels",
-    icon: <StarIcon className="w-8 h-8 mr-4 text-indigo-600" />,
+    icon: <StarIcon className="w-8 h-8 mr-4 text-secondary-500" />,
     options: [
       {
         title: "Manager",
@@ -143,7 +144,7 @@ const dataProfileOptions: DataProfileCardProps[] = [
   },
   {
     title: "Revenue",
-    icon: <UsersIcon className="w-8 h-8 mr-4 text-indigo-600" />,
+    icon: <UsersIcon className="w-8 h-8 mr-4 text-secondary-500" />,
     options: [
       {
         title: "$10-50M",
@@ -173,7 +174,7 @@ const dataProfileOptions: DataProfileCardProps[] = [
   },
   {
     title: "Location",
-    icon: <LocationMarkerIcon className="w-8 h-8 mr-4 text-indigo-600" />,
+    icon: <LocationMarkerIcon className="w-8 h-8 mr-4 text-secondary-500" />,
     options: [
       {
         title: "New York",
@@ -204,7 +205,7 @@ const dataProfileOptions: DataProfileCardProps[] = [
   },
   {
     title: "Industry",
-    icon: <ShoppingBagIcon className="w-8 h-8 mr-4 text-indigo-600" />,
+    icon: <ShoppingBagIcon className="w-8 h-8 mr-4 text-secondary-500" />,
     options: [
       {
         title: "Technology",
@@ -367,21 +368,21 @@ export default function SearchPage() {
                     <Card.Body>
                       <ul className="space-y-8">
                         <li className="flex">
-                          <UsersIcon className="w-6 h-6 mr-4 text-indigo-600" />
+                          <UsersIcon className="w-6 h-6 mr-4 text-secondary-500" />
                           <div>
                             <h3>Contacts</h3>
                             <h5 className="mt-1 text-xl text-black">584,893</h5>
                           </div>
                         </li>
                         <li className="flex">
-                          <OfficeBuildingIcon className="w-6 h-6 mr-4 text-indigo-600" />
+                          <OfficeBuildingIcon className="w-6 h-6 mr-4 text-secondary-500" />
                           <div>
                             <h3>Companies</h3>
                             <h5 className="mt-1 text-xl text-black">848</h5>
                           </div>
                         </li>
                         <li className="flex">
-                          <UserIcon className="w-6 h-6 mr-4 text-indigo-600" />
+                          <UserIcon className="w-6 h-6 mr-4 text-secondary-500" />
                           <div>
                             <h3>Contacts per Company</h3>
                             <h5 className="mt-1 text-xl text-black">4,572</h5>
@@ -400,8 +401,7 @@ export default function SearchPage() {
         </div>
       </div>
       <Drawer open={!!sidebarInfo} onClose={() => setSidebarInfo(undefined)} className="pt-24">
-        <Drawer.Title>Hello World</Drawer.Title>
-        <Drawer.Section></Drawer.Section>
+        {sidebarInfo && <SearchDrawerInfo result={sidebarInfo} />}
       </Drawer>
     </>
   );

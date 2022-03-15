@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { BellIcon, MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
-import Navigation from "./Navigation";
 import { Avatar, Dropdown } from "demandscience-ui";
+import Navigation from "./Navigation";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -66,7 +66,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <Navigation />
       </div>
 
-      <div className="max-w-screen-2xl mx-auto md:pl-14">
+      <div className="max-w-screen-2xl mx-auto md:pl-14 relative">
         {/* Top bar */}
         <div className="fixed top-0 left-0 right-0 z-10 flex flex-shrink-0 h-16 bg-white shadow-xl shadow-gray-400/10">
           <button
