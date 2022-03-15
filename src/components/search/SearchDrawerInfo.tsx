@@ -1,4 +1,5 @@
 import { DeviceMobileIcon, MailIcon, PhoneIcon } from "@heroicons/react/outline";
+import { Icon } from "components/utils/Icon";
 import { Avatar, Badge, Drawer } from "demandscience-ui";
 import React from "react";
 
@@ -20,9 +21,9 @@ export default function SearchDrawerInfo({ result }: Props) {
             Revealed
           </Badge>
         </div>
-        <div className="flex space-x-4 mt-4">
-          <div className="bg-gray-400 rounded w-5 h-5"></div>
-          <div className="bg-gray-400 rounded-full w-5 h-5"></div>
+        <div className="flex items-center space-x-2 mt-4 text-gray-400">
+          {result.socials["twitter"] && <Icon.Twitter className="w-5 h-5" />}
+          {result.socials["linkedin"] && <Icon.Linkedin className="w-5 h-5" />}
         </div>
       </Drawer.Section>
 

@@ -314,14 +314,14 @@ export default function SearchPage() {
           <Tabs>
             <Tabs.List className="pb-2 border-b md:px-4">
               <Tabs.Item>
-                <UsersIcon className="w-5 h-5 mr-2" /> People
+                <UsersIcon className="w-5 h-5 mr-2 hidden sm:block" /> People
               </Tabs.Item>
               <Tabs.Item>
-                <OfficeBuildingIcon className="w-5 h-5 mr-2" />
+                <OfficeBuildingIcon className="w-5 h-5 mr-2 hidden sm:block" />
                 Companies
               </Tabs.Item>
               <Tabs.Item>
-                <ViewGridIcon className="w-5 h-5 mr-2" />
+                <ViewGridIcon className="w-5 h-5 mr-2 hidden sm:block" />
                 Data Profile
               </Tabs.Item>
             </Tabs.List>

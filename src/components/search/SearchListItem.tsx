@@ -1,5 +1,5 @@
 import { DeviceMobileIcon, LinkIcon, MailIcon, PhoneIcon } from "@heroicons/react/outline";
-import { Icon } from "components/util/Icon";
+import { Icon } from "components/utils/Icon";
 import { Avatar, Checkbox, Dropdown } from "demandscience-ui";
 import React from "react";
 
