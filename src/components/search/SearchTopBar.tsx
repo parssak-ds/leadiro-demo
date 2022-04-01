@@ -83,13 +83,7 @@ export default function SearchTopBar({
         >
           Sort by company revenue
         </Dropdown>
-        <Pagination
-          page={1}
-          count={100}
-          rowsPerPage={100}
-          onPageChange={(e, p) => {}}
-          variant="compact"
-        />
+        <Pagination.Compact page={1} count={100} rowsPerPage={100} onPageChange={(e, p) => {}} />
       </div>
     </div>
   );

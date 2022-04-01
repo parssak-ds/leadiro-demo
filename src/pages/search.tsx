@@ -7,15 +7,7 @@ import SearchListItem from "components/search/SearchListItem";
 import SearchTopBar from "components/search/SearchTopBar";
 
 import { Alert, Button, Card, Drawer, Modal, Select, Tabs } from "demandscience-ui";
-import {
-  UsersIcon,
-  OfficeBuildingIcon,
-  UserIcon,
-  StarIcon,
-  LocationMarkerIcon,
-  ShoppingBagIcon,
-  ViewGridIcon,
-} from "@heroicons/react/outline";
+import { UsersIcon, OfficeBuildingIcon, ViewGridIcon } from "@heroicons/react/outline";
 import { searchResults } from "components/search/data";
 import DataProfileView from "components/search/DataProfileView";
 
@@ -183,7 +175,13 @@ export default function SearchPage() {
             />
           </div>
         </Modal.Description>
-        <div className="flex justify-end mt-4">
+        <div className="flex justify-end mt-4 space-x-96">
+          <Button borderless onClick={() => setShowExportModal(false)}>
+            Cancel
+          </Button>
+          <Button borderless onClick={() => setShowExportModal(false)}>
+            Cancel
+          </Button>
           <Button borderless onClick={() => setShowExportModal(false)}>
             Cancel
           </Button>

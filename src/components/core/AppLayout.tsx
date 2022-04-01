@@ -113,7 +113,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
         {/* Main content */}
         <main className="min-h-screen md:h-screen">
-          <div className="flex flex-col h-full px-4 pt-24 pb-8 md:pt-28 sm:px-6 md:px-8">
+          <div className="flex flex-col h-full px-4 pt-24 pb-8  md:pt-28 sm:px-6 md:px-8">
             {children}
           </div>
         </main>
