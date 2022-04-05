@@ -67,8 +67,9 @@ export default function SearchPage() {
         <div className="flex flex-col w-full">
           <Tabs>
             <Tabs.List className="pb-2 border-b md:px-4">
-              <Tabs.Item>
-                <UsersIcon className="w-5 h-5 mr-2 hidden sm:block" /> People
+              <Tabs.Item className="group">
+                <UsersIcon className="w-5 h-5 mr-2 hidden sm:block group-selected:hidden" />{" "}
+                People
               </Tabs.Item>
               <Tabs.Item>
                 <OfficeBuildingIcon className="w-5 h-5 mr-2 hidden sm:block" />
@@ -154,7 +155,7 @@ export default function SearchPage() {
                   value: "hubspot",
                 },
               ]}
-              selectedOption={undefined}
+              value={undefined}
               onChange={(e) => {
                 return "";
               }}
@@ -167,7 +168,7 @@ export default function SearchPage() {
                   value: "us-central-startups",
                 },
               ]}
-              selectedOption={undefined}
+              value={undefined}
               onChange={(e) => {
                 return "";
               }}
@@ -175,13 +176,7 @@ export default function SearchPage() {
             />
           </div>
         </Modal.Description>
-        <div className="flex justify-end mt-4 space-x-96">
-          <Button borderless onClick={() => setShowExportModal(false)}>
-            Cancel
-          </Button>
-          <Button borderless onClick={() => setShowExportModal(false)}>
-            Cancel
-          </Button>
+        <div className="flex justify-end mt-4 space-x-6">
           <Button borderless onClick={() => setShowExportModal(false)}>
             Cancel
           </Button>

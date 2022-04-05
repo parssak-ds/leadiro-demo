@@ -1,3 +1,5 @@
+let plugin = require("tailwindcss/plugin");
+
 module.exports = {
   content: [
     "./src/components/**/*.{ts,tsx,js,jsx}",
@@ -62,5 +64,13 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    plugin(function ({ addVariant, e }) {
+      addVariant("group-selected", ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.group[aria-selected='true'] .${e(`group-selected${separator}${className}`)}`;
+        });
+      });
+    }),
+  ],
 };

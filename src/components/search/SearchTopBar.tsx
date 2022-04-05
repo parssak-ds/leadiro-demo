@@ -79,10 +79,9 @@ export default function SearchTopBar({
             borderless: true,
             size: "xs",
           }}
+          label="Sort by company revenue"
           dropdownClassName="z-10"
-        >
-          Sort by company revenue
-        </Dropdown>
+        />
         <Pagination.Compact page={1} count={100} rowsPerPage={100} onPageChange={(e, p) => {}} />
       </div>
     </div>
